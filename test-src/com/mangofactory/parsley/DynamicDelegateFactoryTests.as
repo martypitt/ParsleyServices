@@ -35,7 +35,7 @@ package com.mangofactory.parsley
 		[Test(async)]
 		public function preparesServiceForInterface():void
 		{
-			factory.prepareDelegate(DynamicService.createForTypeAndDestination(IAccountService,"testDestination"));
+			factory.prepareDelegate(DynamicServiceDefinition.createForTypeAndDestination(IAccountService,"testDestination"));
 			var handler:Function = Async.asyncHandler(this,onServicePrepared,2000)
 			factory.addEventListener(Event.COMPLETE,handler);
 			factory.build();
@@ -50,7 +50,7 @@ package com.mangofactory.parsley
 		
 	}
 }
-import com.mangofactory.parsley.DynamicService;
+import com.mangofactory.parsley.DynamicServiceDefinition;
 import com.mangofactory.parsley.IRemoteObjectBuilder;
 
 import mx.rpc.AbstractService;
@@ -63,7 +63,7 @@ class MockRemoteObjectBuilder implements IRemoteObjectBuilder
 	{
 		this.remoteObject = remoteObject;
 	}
-	public function buildService(service:DynamicService):AbstractService
+	public function buildService(service:DynamicServiceDefinition):AbstractService
 	{
 		return remoteObject;
 	}

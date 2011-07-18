@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <flexLibProperties includeAllClasses="true" useMultiPlatformConfig="false" version="3">
   <includeClasses>
-    <classEntry path="com.mangofactory.parsley.DynamicService"/>
-    <classEntry path="com.mangofactory.parsley.SampleTests"/>
+    <classEntry path="com.mangofactory.parsley.DynamicServiceDefinition"/>
     <classEntry path="com.mangofactory.parsley.IAccountService"/>
-    <classEntry path="com.mangofactory.parsley.DynamicDelegate"/>
     <classEntry path="com.mangofactory.parsley.DynamicDelegateFactory"/>
     <classEntry path="com.mangofactory.parsley.DynamicDelegateFactoryTests"/>
     <classEntry path="com.mangofactory.parsley.IRemoteObjectBuilder"/>
@@ -12,7 +10,7 @@
     <classEntry path="com.mangofactory.parsley.ServiceMethodInterceptor"/>
     <classEntry path="com.mangofactory.parsley.tag.DynamicServiceSupport"/>
     <classEntry path="com.mangofactory.parsley.tag.DynamicServiceConfigProcessor"/>
-    <classEntry path="com.mangofactory.parsley.tag.DynamicServiceTag"/>
+    <classEntry path="com.mangofactory.parsley.tag.DynamicService"/>
     <classEntry path="com.mangofactory.parsley.tag.DynamicServiceContext"/>
     <classEntry path="com.mangofactory.parsley.config.DefaultInstantiator"/>
     <classEntry path="com.mangofactory.parsley.config.DefaultDynamicServiceContext"/>

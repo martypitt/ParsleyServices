@@ -4,9 +4,9 @@ package com.mangofactory.parsley
 	
 	public class ServiceMethodInterceptor implements IMethodInvocationInterceptorFactory
 	{
-		private var service:DynamicService;
+		private var service:DynamicServiceDefinition;
 		private var serviceFactory:IRemoteObjectBuilder;
-		public function ServiceMethodInterceptor(service:DynamicService,serviceFactory:IRemoteObjectBuilder)
+		public function ServiceMethodInterceptor(service:DynamicServiceDefinition,serviceFactory:IRemoteObjectBuilder)
 		{
 			this.service = service;
 			this.serviceFactory = serviceFactory;
@@ -18,7 +18,7 @@ package com.mangofactory.parsley
 		}
 	}
 }
-import com.mangofactory.parsley.DynamicService;
+import com.mangofactory.parsley.DynamicServiceDefinition;
 import com.mangofactory.parsley.IRemoteObjectBuilder;
 
 import mx.rpc.AbstractOperation;
@@ -30,12 +30,12 @@ import org.as3commons.bytecode.interception.impl.InvocationKind;
 
 class MethodInterceptor implements IMethodInvocationInterceptor
 {
-	private var service:DynamicService;
+	private var service:DynamicServiceDefinition;
 	private var serviceFactory:IRemoteObjectBuilder;
 	
 	private var remoteObject:AbstractService;
 	
-	public function MethodInterceptor(service:DynamicService,serviceFactory:IRemoteObjectBuilder)
+	public function MethodInterceptor(service:DynamicServiceDefinition,serviceFactory:IRemoteObjectBuilder)
 	{
 		this.service = service;
 		this.serviceFactory = serviceFactory;

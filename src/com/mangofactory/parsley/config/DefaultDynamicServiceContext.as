@@ -18,12 +18,10 @@ package com.mangofactory.parsley.config
 			return instance;
 		}
 		
-		private var instantiator:ObjectInstantiator;
-		private var delegateFactory:DynamicDelegateFactory;
+		private var instantiator:DefaultInstantiator;
 		public function DefaultDynamicServiceContext()
 		{
 			instantiator = new DefaultInstantiator();
-			delegateFactory = new DynamicDelegateFactory();
 		}
 		
 		public function getInstantiator():ObjectInstantiator
@@ -33,7 +31,7 @@ package com.mangofactory.parsley.config
 
 		public function getDynamicDelegateFactory():DynamicDelegateFactory
 		{
-			return delegateFactory;
+			return instantiator;
 		}
 	}
 }

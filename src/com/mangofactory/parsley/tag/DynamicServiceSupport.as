@@ -12,7 +12,7 @@ package com.mangofactory.parsley.tag
 	{
 		public var factory:DynamicDelegateFactory;
 		
-		public function DynamicServiceSupport(factory:DynamicDelegateFactory)
+		public function DynamicServiceSupport(factory:DynamicDelegateFactory=null)
 		{
 			this.factory = factory ? factory : DefaultDynamicServiceContext.getInstance().getDynamicDelegateFactory(); 
 		}

@@ -40,7 +40,7 @@ package com.mangofactory.parsley
 		/**
 		 * Adds a DynamicService to the queue to be built when build() is called
 		 * */
-		public function prepareDelegate(service:DynamicService):void
+		public function prepareDelegate(service:DynamicServiceDefinition):void
 		{
 			delegatesToBuild[service.type] = service;
 		}
@@ -52,7 +52,7 @@ package com.mangofactory.parsley
 		 * */
 		public function build():void
 		{
-			for each (var service:DynamicService in delegatesToBuild)
+			for each (var service:DynamicServiceDefinition in delegatesToBuild)
 			{
 				var proxyInfo:IClassProxyInfo = proxyFactory.defineProxy(service.type);
 				proxyInfo.interceptorFactory = new ServiceMethodInterceptor(service,remoteObjectBuilder);
@@ -89,7 +89,7 @@ package com.mangofactory.parsley
 		}
 	}
 }
-import com.mangofactory.parsley.DynamicService;
+import com.mangofactory.parsley.DynamicServiceDefinition;
 import com.mangofactory.parsley.IRemoteObjectBuilder;
 
 import mx.rpc.AbstractService;
@@ -99,7 +99,7 @@ import org.as3commons.bytecode.proxy.IProxyFactory;
 
 class DefaultRemoteObjectBuilder implements IRemoteObjectBuilder
 {
-	public function buildService(serviceDefinition:DynamicService):AbstractService
+	public function buildService(serviceDefinition:DynamicServiceDefinition):AbstractService
 	{
 		var remoteObject:RemoteObject = new RemoteObject();
 		remoteObject.channelSet = serviceDefinition.channelSet;

@@ -4,6 +4,6 @@ package com.mangofactory.parsley
 
 	public interface IRemoteObjectBuilder
 	{
-		function buildService(service:DynamicService):AbstractService;
+		function buildService(service:DynamicServiceDefinition):AbstractService;
 	}
 }

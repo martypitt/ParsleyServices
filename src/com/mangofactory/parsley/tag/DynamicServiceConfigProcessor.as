@@ -1,13 +1,14 @@
 package com.mangofactory.parsley.tag
 {
 	import com.mangofactory.parsley.DynamicDelegateFactory;
-	import com.mangofactory.parsley.DynamicService;
+	import com.mangofactory.parsley.DynamicServiceDefinition;
 	
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	import flash.events.IOErrorEvent;
 	
 	import org.spicefactory.parsley.core.bootstrap.AsyncConfigurationProcessor;
+	import org.spicefactory.parsley.core.registry.ObjectDefinition;
 	import org.spicefactory.parsley.core.registry.ObjectDefinitionRegistry;
 	
 	public class DynamicServiceConfigProcessor extends EventDispatcher implements AsyncConfigurationProcessor
@@ -24,11 +25,6 @@ package com.mangofactory.parsley.tag
 		public function processConfiguration(registry:ObjectDefinitionRegistry):void
 		{
 			intialize();
-			var services:Array = registry.getAllDefinitionsByType(DynamicService);
-			for each (var dynamicService:DynamicService in services)
-			{
-				delegateFactory.prepareDelegate(dynamicService);
-			}
 			delegateFactory.addEventListener(Event.COMPLETE,onComplete);
 			delegateFactory.addEventListener(IOErrorEvent.IO_ERROR,dispatchEvent);
 			delegateFactory.build();
